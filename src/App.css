@@ -1,38 +1,175 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 20px;
+  transition: background 1s ease;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  padding: 15px 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+/* Search */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+@media(min-width: 500px) {
+  .search-container { flex-direction: row; }
+}
+
+input[type="text"] {
+  padding: 12px;
+  border: 2px solid #00796b;
+  border-radius: 25px;
+  width: 250px;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #004d40;
+  box-shadow: 0 0 5px rgba(0, 77, 64, 0.5);
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(45deg, #00796b, #004d40);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* History */
+.history {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.history span {
+  background: rgba(255,255,255,0.7);
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: 0.2s;
+}
+
+.history span:hover {
+  background: #00796b;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Error */
+.error {
+  color: red;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Weather Card */
+.weather-card {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  width: 320px;
+  animation: fadeIn 0.8s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.emoji {
+  font-size: 4.5rem;
+}
+
+.temp-info h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #00796b;
+}
+
+.datetime {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.temperature {
+  font-size: 2rem;
+  margin: 5px 0;
+}
+
+.feels-like {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Weather Details */
+.weather-details {
+  margin-top: 15px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+/* Legend */
+.legend {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  gap: 5px;
+}
+
+/* Backgrounds */
+.bg-default { background-color: #e0f7fa; }
+.bg-sunny { background: linear-gradient(to top, #ffe57f, #ffd54f); }
+.bg-partly-cloudy { background: linear-gradient(to top, #b3e5fc, #81d4fa); }
+.bg-rainy { background: linear-gradient(to top, #90caf9, #64b5f6); }
+.bg-snowy { background: linear-gradient(to top, #e1f5fe, #b3e5fc); }
+.bg-stormy { background: linear-gradient(to top, #b0bec5, #78909c); }
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
